@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="/static/foods/css/main.css" rel="stylesheet" />
     <title>Title</title>
 </head>
 <body>
-<table class="table">
+
+<input id="searching"  class="form-control" type="number" placeholder="Product ID">
+
+<table class="table table-hover">
     <thead>
     <tr>
         <th scope="col">Recipe ID</th>
@@ -23,6 +27,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-<script type="text/javascript" src="/static/foods/main.js"></script>
-<script>get_endpoint();</script>
+<script src="/static/foods/js/main.js"></script>
 </html>
