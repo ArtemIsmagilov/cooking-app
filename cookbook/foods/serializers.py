@@ -1,10 +1,5 @@
 from rest_framework import serializers
 
-from .models import (
-    Recipe,
-    RecipeProduct,
-)
-
 
 class RecipeSerializer(serializers.Serializer):
     recipe_id = serializers.IntegerField()

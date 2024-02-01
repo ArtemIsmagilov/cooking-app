@@ -63,13 +63,14 @@ class CookRecipe(views.APIView):
 class ShowRecipesWithoutProduct(views.APIView):
 
     def get(self, request: Request, product_id: int, format=None) -> Response:
+
         recipes = RecipeProduct.objects.raw("""
-             SELECT foods_recipeproduct.id, foods_recipeproduct.recipe_id, foods_recipe.title
-             FROM foods_recipeproduct
-             INNER JOIN foods_recipe ON foods_recipeproduct.id=foods_recipe.id
-             WHERE NOT(foods_recipeproduct.product_id=%s) OR foods_recipeproduct.weight < 10
-             GROUP BY recipe_id;
-             """, (product_id,))
+        SELECT foods_recipeproduct.id, foods_recipeproduct.recipe_id, foods_recipe.title
+        FROM foods_recipeproduct
+        INNER JOIN foods_recipe ON foods_recipeproduct.id=foods_recipe.id
+        WHERE NOT(foods_recipeproduct.product_id=%s) OR foods_recipeproduct.weight < 10
+        GROUP BY recipe_id;
+        """, (product_id,))
 
         serializer = RecipeSerializer(recipes, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
